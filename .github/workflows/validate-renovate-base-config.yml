@@ -18,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - name: Run a one-line script
-        run: npx --package renovate -c 'renovate-config-validator' "$GITHUB_WORKSPACE/renovate/renovate_config.json"
+        run: npx --package=renovate -c 'renovate-config-validator' "$GITHUB_WORKSPACE/renovate/renovate_config.json"
