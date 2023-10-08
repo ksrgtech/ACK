@@ -20,4 +20,6 @@ jobs:
     - run: |
         date > "$GITHUB_WORKSPACE/ACK.txt"
         git commit -a -m "update"
+        git config user.name "ksrgtech ACK updater"
+        git config user.email "100070112+ksrgtech@users.noreply.github.com"
         git push 'https://${{ secrets.APP_LOGIN }}:${{ steps.generate_token.outputs.token }}@github.com/ksrgtech/ACK.git'
