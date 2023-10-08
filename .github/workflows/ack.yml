@@ -1,0 +1,23 @@
+name: "Automatic Connection Keeper invoker"
+on:
+  schedule: 
+    - cron: '45 17 * * *'
+  workflow_dispatch:
+jobs:
+  hi:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        # full log
+        fetch-deps: 0
+    - name: Generate token
+      id: generate_token
+      uses: getsentry/action-github-app-token@v2
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        private_key: ${{ secrets.PRIVATE_KEY }}
+    - run: |
+        date > "$GITHUB_WORKSPACE"
+        git commit -a -m "update"
+        git push 'https://${{ secrets.APP_LOGIN }}:${{ steps.generate_token.outputs.token }}@github.com/ksrgtech/ACK.git'
