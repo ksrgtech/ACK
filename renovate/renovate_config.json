@@ -1,0 +1,18 @@
+{
+  "packageRules": [
+    {
+      "packagePatterns": ["*"],
+      "excludePackagePatterns": [".ksrgtech-ack"],
+      "matchManagers": ["git-submodules"],
+      "enabled": false
+    }
+    {
+      "packagePatterns": [".ksrgtech-ack"],
+      "matchManagers": ["git-submodules"],
+      "automerge": true
+    }
+  ],
+  "git-submodules": {
+    "enabled": true
+  }
+}
