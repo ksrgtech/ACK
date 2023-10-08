@@ -7,9 +7,11 @@ on:
   push:
     paths:
       - renovate/renovate_config.json
+      - .github/workflows/validate-renovate-base-config.yml
   pull_request:
     paths:
       - renovate/renovate_config.json
+      - .github/workflows/validate-renovate-base-config.yml
 jobs:
   build:
     runs-on: ubuntu-latest
